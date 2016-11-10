@@ -20,7 +20,7 @@ import com.example.oleg.model.StatusRoom;
 import com.example.oleg.prop.PropHolder;
 
 public class RoomsService {
-	private static final String NONONO = "нельзя";
+	private static final String NONONO = "пїЅпїЅпїЅпїЅпїЅпїЅ";
 	private final int THREE = 3;
 	private final String PRICE = " price ";
 	private DataBase dateBase;
@@ -245,7 +245,7 @@ public class RoomsService {
 		saveFile.sever(this.dateBase.getRoomsList());
 	}
 
-	// клонирование объекта. Объекту присваиваем уникальный id
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ id
 	public Room roomClone(int numberRoom) {
 		Room room = null;
 		Room clone = null;
@@ -277,20 +277,37 @@ public class RoomsService {
 	}
 	
 	public void importCSV(String path){
-		ArrayList<Room> roomsList=new ArrayList<Room>(dateBase.getRoomsList());
+		AboutCSV aboutCSV=new AboutCSV(path);
 		try {
-			FileOutputStream outputStream=new FileOutputStream(path);
-			for (int i = 0; i < roomsList.size(); i++) {
-				Room room=roomsList.get(i);
-				
-			}
-			
-			
-			
-			
-		} catch (FileNotFoundException e) {
+			aboutCSV.outputRoom(this.dateBase.getRoomsList());
+		} catch (IOException e) {
 			log.info(e);
 		}
 		
+	}
+	public void exportCsv(String path){
+		AboutCSV aboutCSV=new AboutCSV(path);
+		List<Room> listRoom=aboutCSV.importRoom();
+		for(int i=0;i<listRoom.size();i++){
+			Room room=listRoom.get(i);
+			int k=0;
+			for(int j=0;j<this.dateBase.getRoomsList().size();j++){
+				Room countRoom=this.dateBase.getRoomsList().get(j);
+				if(room.getId()==countRoom.getId()){
+					countRoom.setNumber(room.getNumber());
+					countRoom.setPrice(room.getPrice());
+					countRoom.setStars(room.getStars());
+					countRoom.setCapacity(room.getCapacity());
+					
+					k=1;
+					break;
+				}
+			}
+			if(k==0){
+				this.dateBase.getRoomsList().add(room);
+			}
+						
+			
+		}
 	}
 }

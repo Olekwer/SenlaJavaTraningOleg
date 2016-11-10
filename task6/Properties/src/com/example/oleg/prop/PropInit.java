@@ -13,10 +13,10 @@ public class PropInit {
 		Properties properties = null;
 		try {
 			properties=new Properties();
-			properties.load(new InputStreamReader(new FileInputStream("D:/config.properties")));
+			properties.load(new InputStreamReader(new FileInputStream("/home/user/config.properties")));
 		}
 		catch (IOException e) {
-			 System.err.println("ОШИБКА: Файл свойств отсуствует!");
+			 System.err.println("пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!");
 		}
 		
 		return properties;		

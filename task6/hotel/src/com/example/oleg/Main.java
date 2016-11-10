@@ -18,7 +18,7 @@ public class Main {
 	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args) throws ParseException, FileNotFoundException, IOException {
-		System.out.println(args[0]);
+		//System.out.println(args[0]);
 		String n= "MAINTAINED";
 		System.out.println(n.equals(StatusRoom.MAINTAINED.name()));
 		DataBase dateBase = new DataBase("room.txt", "guest.txt", "option.txt", "order.txt");
@@ -45,14 +45,24 @@ public class Main {
 			System.out.println(facade.getServiceOrder().optionGuest(1).get(i));
 		}
 		System.out.println("-----------------------------------------------------");
-		Room r=facade.cloneRoom(1);
+	//	Room r=facade.cloneRoom(1);
 		
-		System.out.println(r);
+	//	System.out.println(r);
 		System.out.println("-----------------------------------------------------");
 		Room rooms=facade.detailRoom(1);
 		for(int i=0;i<facade.historyGuestRoom(rooms, 2).size();i++){
 			System.out.println(facade.historyGuestRoom(rooms, 2).get(i));
 		}
+		System.out.println("-----------------------------------------------------");
+		//facade.importCsvRoom("/home/user/3.csv");
+		facade.exportCsvRoom("/home/user/3.csv");
+		
+		System.out.println("-----------------------------------------------------");
+		for (int i = 0; i < facade.getServiceRooms().getRoomsList().size(); i++) {
+			System.out.println(facade.getServiceRooms().getRoomsList().get(i));
+		}
+		System.out.println("-----------------------------------------------------");
+		
 /*		SimpleDateFormat format=new SimpleDateFormat("dd.MM.yyyy");
 
 		facade.getServiceGuests().putGuestRoom("kira",1, format.parse("19.10.2016"), format.parse("30.10.2016"));

@@ -8,10 +8,9 @@ import org.example.oleg.writer.Writer;
 import com.example.oleg.controller.Facade;
 
 public class CloneRoom implements IEvent {
-	private static final String ID_NUMBER_ENTER = "id номера ввести";
+	private static final String ID_NUMBER_ENTER = "id пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ";
 	private Facade facade = Facade.getFacade();
 
-	@Override
 	public void action() {
 		// TODO Auto-generated method stub
 		Input input=new Input();

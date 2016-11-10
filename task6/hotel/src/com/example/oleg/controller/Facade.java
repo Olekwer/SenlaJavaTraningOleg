@@ -251,4 +251,10 @@ public class Facade {
 	public Room cloneRoom(int numberRoom){
 		return this.serviceRooms.roomClone(numberRoom);
 	}
+	public void importCsvRoom(String path){
+		this.serviceRooms.importCSV(path);
+	}
+	public void exportCsvRoom(String path){
+		this.serviceRooms.exportCsv(path);
+	}
 }

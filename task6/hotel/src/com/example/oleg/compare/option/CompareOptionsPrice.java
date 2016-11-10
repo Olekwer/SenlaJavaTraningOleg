@@ -6,7 +6,6 @@ import com.example.oleg.model.Option;
 
 public class CompareOptionsPrice implements Comparator<Option> {
 
-	@Override
 	public int compare(Option arg0, Option arg1) {
 		double price1 = arg0.getPrice();
 		double price2 = arg1.getPrice();

@@ -6,7 +6,6 @@ import com.example.oleg.model.Room;
 
 public class CompareRoomPrice implements Comparator<Room> {
 
-	@Override
 	public int compare(Room arg0, Room arg1) {
 
 		double price1 = arg0.getPrice();

@@ -1,6 +1,8 @@
 package org.example.oleg.event;
 
+import org.example.oleg.reader.Printer;
 import org.example.oleg.reader.Reader;
+import org.example.oleg.writer.Input;
 import org.example.oleg.writer.Writer;
 
 import com.example.oleg.controller.Facade;
@@ -11,16 +13,14 @@ public class OptionAdd implements IEvent {
 	private Facade facade = Facade.getFacade();
 
 	public void action() {
-		Reader reader=new Reader();
-		Writer writer =new Writer();
-		reader.setText(PLEACE_ENTER_NAME_OPTION);
-		reader.print();
-		writer.string();
-		String name = (String) writer.getResult();
-		reader.setText(PLEACE_ENTER_PRICE_OPTION);
-		reader.print();
-		writer.numberDouble();
-		double price = (double) writer.getResult();
+		Printer printer=new Printer(PLEACE_ENTER_NAME_OPTION);
+		Input input=new Input();
+		
+		String name = input.string();
+		printer=new Printer(PLEACE_ENTER_PRICE_OPTION);
+		
+		
+		double price = input.numberDouble();
 		facade.addOption(name, price);
 
 	}

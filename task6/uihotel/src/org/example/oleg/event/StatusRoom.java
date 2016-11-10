@@ -1,6 +1,8 @@
 package org.example.oleg.event;
 
+import org.example.oleg.reader.Printer;
 import org.example.oleg.reader.Reader;
+import org.example.oleg.writer.Input;
 import org.example.oleg.writer.Writer;
 
 import com.example.oleg.controller.Facade;
@@ -14,20 +16,17 @@ public class StatusRoom implements IEvent {
 
 	public void action() {
 		Reader reader = new Reader();
-		Writer writer =new Writer();
-		
-		reader.setText(PLEACE_ENTER_NUMBER_ROOM);
-		reader.print();
-		writer.numberInt();
-		int numberRoom=(int) writer.getResult();
-		reader.setText(PLEACE_ENTER_STATUSR_ROOM_M_OR_R);
-		reader.print();
-		writer.string();
-		String status=(String) writer.getResult();
-		if(status.equals(STATUS_M)){
+		Input input = new Input();
+
+		Printer printer = new Printer(PLEACE_ENTER_NUMBER_ROOM);
+
+		int numberRoom = input.numberInt();
+		printer = new Printer(PLEACE_ENTER_STATUSR_ROOM_M_OR_R);
+
+		String status = input.string();
+		if (status.equals(STATUS_M)) {
 			facade.maintainedRoom(numberRoom);
-		}
-		else if(status.equals(STATUS_R)){
+		} else if (status.equals(STATUS_R)) {
 			facade.repairsRoom(numberRoom);
 		}
 

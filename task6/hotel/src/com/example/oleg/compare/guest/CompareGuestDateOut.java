@@ -6,7 +6,6 @@ import com.example.oleg.model.Guest;
 
 public class CompareGuestDateOut implements Comparator<Guest> {
 
-	@Override
 	public int compare(Guest o1, Guest o2) {
 		long d1 = o1.getDateOut().getTime();
 		long d2 = o1.getDateOut().getTime();

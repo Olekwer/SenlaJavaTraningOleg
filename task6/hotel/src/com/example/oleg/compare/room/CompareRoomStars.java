@@ -6,7 +6,6 @@ import com.example.oleg.model.Room;
 
 public class CompareRoomStars implements Comparator<Room> {
 
-	@Override
 	public int compare(Room o1, Room o2) {
 
 		int stars1 = o1.getStars();

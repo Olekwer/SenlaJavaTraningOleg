@@ -55,7 +55,7 @@ public class Main {
 		}
 		System.out.println("-----------------------------------------------------");
 		//facade.importCsvRoom("/home/user/3.csv");
-		facade.exportCsvRoom("/home/user/3.csv");
+		facade.exportCsvRoom("3.csv");
 		
 		System.out.println("-----------------------------------------------------");
 		for (int i = 0; i < facade.getServiceRooms().getRoomsList().size(); i++) {
